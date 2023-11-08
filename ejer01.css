@@ -1,0 +1,15 @@
+#elementoCambiado {
+    width: 150px;
+    height: 150px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.5s;
+  }
+  
+  #elementoCambiado.cambiado {
+    background-color: red;
+  }
+  
+  

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ejercicio 06 GuerraErick</title>
+  <style>
+    
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    
+    li {
+      margin: 5px 0;
+    }
+    
+    button {
+      background-color: #634caa;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lista de Tareas</h1>
+
+  <form id="todo-form">
+    <input type="text" id="new-task" placeholder="Agregar nueva tarea" required>
+    <button type="submit">Agregar</button>
+  </form>
+
+  <ul id="task-list">
+  </ul>
+
+  <script>
+    function addTask() {
+      const taskText = document.getElementById("new-task").value;
+      if (taskText) {
+        const taskList = document.getElementById("task-list");
+        const newTask = document.createElement("li");
+        newTask.innerHTML = `${taskText} <button onclick="removeTask(this)">Eliminar</button>`;
+        taskList.appendChild(newTask);
+        document.getElementById("new-task").value = ""; 
+      }
+    }
+
+    function removeTask(task) {
+      task.parentElement.remove();
+    }
+
+    document.getElementById("todo-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      addTask();
+    });
+  </script>
+</body>
+</html>
